@@ -1,18 +1,11 @@
 from .node import *
 import collections
 class Solver:
-    """
-    An '8-puzzle' solver
-    - 'start' is a Puzzle instance
-    """
-    def __init__(self, start):
+    def __init__(self, start, flag):
         self.start = start
+        self.flag = flag
 
     def solve(self):
-        """
-        Perform BFS and return a path
-        to the solution, if it exists
-        """
         queue = collections.deque([Node(self.start)])
         seen = set()
         seen.add(queue[0].state)
@@ -23,7 +16,7 @@ class Solver:
                 return node.path
 
             for move, action in node.actions:
-                child = Node(move(), node, action)
+                child = Node(move(), node, action, self.flag)
 
                 if child.state not in seen:
                     queue.appendleft(child)
