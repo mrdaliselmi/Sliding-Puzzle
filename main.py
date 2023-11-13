@@ -11,6 +11,7 @@ def main ():
     # board = [[4, 1, 2], [5, 3, 6], [7, 0, 8]]
     puzzle = Puzzle(board)
     puzzle = puzzle.shuffle(15)
+    print("Initial state:",args.h)
     s = Solver(puzzle, args.h)
     tic = time.time()
     p = s.solve()
