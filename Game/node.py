@@ -36,10 +36,8 @@ class Node:
     @property
     def h(self):
         if self.flag=="1":
-            print("Using Manhattan")
             return self.puzzle.manhattan
         else:
-            print("Using Hamming")
             return self.puzzle.hamming
 
     @property
